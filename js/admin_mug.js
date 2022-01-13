@@ -60,9 +60,12 @@ var MugShot = {
 
   makeWrapper: (function () {
     // Div for MugShot Stuff
+    var parent = document.getElementById(this.id3)
+    var parentStyles = document.defaultView.getComputedStyle(parent)
     var w = document.createElement('div');
     w.id = this.id2;
     w.style.left = this.offset.left - this.poffset.left + 'px';
+    w.style.top = parentStyles.paddingTop;
     w.style.width = this.offset.width + 'px';
     w.style.height = this.offset.height + 'px';
     w.style.zIndex = 1000;
@@ -70,9 +73,11 @@ var MugShot = {
   }),
 
   updateWrapper: (function () {
+    var parent = document.getElementById(this.id3)
+    var parentStyles = document.defaultView.getComputedStyle(parent)
     var w = document.getElementById(this.id2)
     w.style.left = this.offset.left - this.poffset.left + 'px';
-    w.style.top = '0px';
+    w.style.top = parentStyles.paddingTop;
     w.style.width = this.offset.width + 'px';
     w.style.height = this.offset.height + 'px';
   }),
