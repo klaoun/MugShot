@@ -42,7 +42,8 @@ function book_mugshots($data, &$service) {
   }
 
   $imageId = pwg_db_real_escape_string($data['imageId']);
-  $plugin_config = conf_get_param(MUGSHOT_ID);
+
+  $plugin_config = safe_unserialize(conf_get_param(MUGSHOT_ID));
 
   unset($data['imageId']);
   $imageIdTagIdInsertionString = '';             // 
@@ -129,7 +130,7 @@ var_dump($plugin_config);
   if ($deleteTagQuery !== '') {
     $deleteTagQuery = '(' . substr(trim($deleteTagQuery), 0, -1) . ')';
     $deleteSql1 = "DELETE FROM " . MUGSHOT_TABLE . " WHERE `tag_id` IN $deleteTagQuery AND `image_id`='$imageId';";
-    $deleteSql2 = "DELETE FROM " . IMAGE_TAG_TABLE . " WHERE `tag_id` IN $deleteTagQuery;";
+    $deleteSql2 = "DELETE FROM " . IMAGE_TAG_TABLE . " WHERE `tag_id` IN $deleteTagQuery AND `image_id`='$imageId';";
     $dResult1 = pwg_query($deleteSql1);
     $dResult2 = pwg_query($deleteSql2);
   } else {
