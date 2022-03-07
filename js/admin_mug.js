@@ -60,9 +60,12 @@ var MugShot = {
 
   makeWrapper: (function () {
     // Div for MugShot Stuff
+    var parent = document.getElementById(this.id3)
+    var parentStyles = document.defaultView.getComputedStyle(parent)
     var w = document.createElement('div');
     w.id = this.id2;
     w.style.left = this.offset.left - this.poffset.left + 'px';
+    w.style.top = parentStyles.paddingTop;
     w.style.width = this.offset.width + 'px';
     w.style.height = this.offset.height + 'px';
     w.style.zIndex = 1000;
@@ -70,9 +73,11 @@ var MugShot = {
   }),
 
   updateWrapper: (function () {
+    var parent = document.getElementById(this.id3)
+    var parentStyles = document.defaultView.getComputedStyle(parent)
     var w = document.getElementById(this.id2)
     w.style.left = this.offset.left - this.poffset.left + 'px';
-    w.style.top = '0px';
+    w.style.top = parentStyles.paddingTop;
     w.style.width = this.offset.width + 'px';
     w.style.height = this.offset.height + 'px';
   }),
@@ -296,6 +301,8 @@ var MugShot = {
     name.style.top = parseInt(mug.top) + parseInt(mug.height) + 'px';
     name.style.left = mug.el.style.left;
     name.style.width = mug.el.style.width;
+    name.autocomplete = false;
+    name.type = "text";
     document.getElementById(this.id2).append(name);
     this.mugs[this.cfi].name.el = name;
     this.mugs[this.cfi].frame.el.title = name.value;
@@ -495,6 +502,7 @@ function doneWithText(e) {
     MugShot.toggleElementSet(index, 'off');
     var vis = MugShot.tagList.querySelectorAll('.mugshot-tag-list-show');
     var v = (vis.length == 1) ? vis[0].innerHTML : e.target.value;
+    e.target.value = v;
     MugShot.mugs[index].frame.name = v;
     MugShot.mugs[index].frame.el.title = v;
     MugShot.mugs[index].active = false;
