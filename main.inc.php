@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Mug Shot
-Version: 2.0.2
+Version: 2.0.3
 Description: Improved face tagging for Piwigo
 Plugin URI: http://piwigo.org/ext/extension_view.php?eid=910
 Author: ccraige90
