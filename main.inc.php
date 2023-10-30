@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Mug Shot
-Version: 2.0.2
+Version: 2.0.3
 Description: Improved face tagging for Piwigo
 Plugin URI: http://piwigo.org/ext/extension_view.php?eid=910
 Author: ccraige90
@@ -27,7 +27,7 @@ define('MUGSHOT_ID',      basename(dirname(__FILE__)));
 define('MUGSHOT_PATH' ,   PHPWG_PLUGINS_PATH . MUGSHOT_ID . '/');
 define('MUGSHOT_ADMIN',   get_root_url() . 'admin.php?page=plugin-' . MUGSHOT_ID);
 define('MUGSHOT_BASE_URL',   get_root_url() . 'admin.php?page=plugin-' . MUGSHOT_ID);
-define('MUGSHOT_VERSION', '2.0.2');
+define('MUGSHOT_VERSION', '2.0.3');
 define('MUGSHOT_TABLE', '`face_tag_positions`');
 define('MUGSHOT_QUEUE_TABLE', '`face_tag_queue`');
 
