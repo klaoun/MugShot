@@ -79,7 +79,7 @@ function create_tag_drop_trigger() {
  * Creates the MugShot face tag table with all data columns required for resizing.
  */
 function create_facetag_table() {
-    $configQuery = 'INSERT INTO ' . CONFIG_TABLE . ' (param,value,comment) VALUES ("MugShot","","MugShot configuration values");';
+    $configQuery = 'REPLACE INTO ' . CONFIG_TABLE . ' (param,value,comment) VALUES ("MugShot","","MugShot configuration values");';
 
     pwg_query($configQuery);
 
